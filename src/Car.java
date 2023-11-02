@@ -3,11 +3,9 @@ import java.awt.*;
 public class Car {
 
     private int x;
-    private int y;
-    private int width;
-    private int height;
-    private Wheel wheel1;
-    private Wheel wheel2;
+    private final int y;
+    private final int width;
+    private final int height;
 
     public Car(final int x, final int y, final int width, final int height) {
         this.x = x;
@@ -20,48 +18,36 @@ public class Car {
         this.x = x;
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
 
     void draw(final Graphics gr) {
         Graphics2D g = (Graphics2D) gr;
 
         //Кузов
         g.setColor(Color.WHITE);
-        g.fillRect(this.x, this.y, this.width/3, this.height/2);
+        g.fillRect(this.x, this.y, this.width / 3, this.height / 2);
         g.setColor(Color.BLUE);
-        g.fillRect(this.x, this.y+height/2, this.width, this.height/2);
-        g.fillRect(this.x + this.width/3, this.y, this.width/3, this.height/2);
+        g.fillRect(this.x, this.y + height / 2, this.width, this.height / 2);
+        g.fillRect(this.x + this.width / 3, this.y, this.width / 3, this.height / 2);
         g.setColor(Color.CYAN);
-        g.fillRect(this.x + this.width/3 + this.width/20, this.y + this.height/20, this.width/4, this.height/3);
+        g.fillRect(this.x + this.width / 3 + this.width / 20, this.y + this.height / 20, this.width / 4, this.height / 3);
         //обводка деталей
         g.setStroke(new BasicStroke(3));
         g.setColor(Color.BLACK);
-        g.drawRect(this.x, this.y, this.width/3, this.height/2);
-        g.drawRect(this.x, this.y+height/2, this.width, this.height/2);
-        g.drawRect(this.x + this.width/3, this.y, this.width/3, this.height/2);
-        g.drawLine(this.x+ this.width*4/10, this.y + this.height*55/100, this.x+ this.width*45/100, this.y + this.height*55/100);
-        wheel1 = new Wheel(this.x + width/10, this.y + this.height*8/10, this.width/10, this.width/10);
+        g.drawRect(this.x, this.y, this.width / 3, this.height / 2);
+        g.drawRect(this.x, this.y + height / 2, this.width, this.height / 2);
+        g.drawRect(this.x + this.width / 3, this.y, this.width / 3, this.height / 2);
+        g.drawLine(this.x + this.width * 4 / 10, this.y + this.height * 55 / 100, this.x + this.width * 45 / 100, this.y + this.height * 55 / 100);
+        Wheel wheel1 = new Wheel(this.x + width / 10, this.y + this.height * 8 / 10, this.width / 10, this.width / 10);
         wheel1.draw(g);
-        wheel2 = new Wheel(this.x + width*7/10, this.y + this.height*8/10, this.width/10, this.width/10);
+        Wheel wheel2 = new Wheel(this.x + width * 7 / 10, this.y + this.height * 8 / 10, this.width / 10, this.width / 10);
         wheel2.draw(g);
     }
 
     public static class Wheel {
-        private int x;
-        private int y;
-        private int width;
-        private int height;
+        private final int x;
+        private final int y;
+        private final int width;
+        private final int height;
 
         public Wheel(final int x, final int y, final int width, final int height) {
             this.x = x;
@@ -69,23 +55,6 @@ public class Car {
             this.width = width;
             this.height = height;
         }
-
-        public void setX(int x) {
-            this.x = x;
-        }
-
-        public void setY(int y) {
-            this.y = y;
-        }
-
-        public void setWidth(int width) {
-            this.width = width;
-        }
-
-        public void setHeight(int height) {
-            this.height = height;
-        }
-
 
         void draw(final Graphics gr) {
             Graphics2D g = (Graphics2D) gr;

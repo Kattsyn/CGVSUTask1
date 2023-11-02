@@ -37,7 +37,7 @@ public class DrawPanel extends JPanel implements ActionListener {
         this.cloud3 = new Clouds(550, 210, 190, 65);
         this.cloud4 = new Clouds(750, 170, 180, 60);
         this.cloud5 = new Clouds(1100, 180, 200, 60);
-        this.road = new Road(0 ,550);
+        this.road = new Road(0, 550);
         this.trafficLight = new TrafficLight(578, 314, 40, 100);
         this.sign = new Sign(1150, 330);
     }
@@ -65,6 +65,4 @@ public class DrawPanel extends JPanel implements ActionListener {
             ticksFromStart += 5;
         }
     }
-
-
 }
