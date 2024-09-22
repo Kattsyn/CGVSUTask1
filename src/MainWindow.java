@@ -5,8 +5,14 @@ import java.awt.event.MouseListener;
 
 public class MainWindow extends JFrame {
     private final DrawPanel panel;
+    private final int width;
+    private final int height;
 
-    public MainWindow() throws HeadlessException {
+
+    public MainWindow(int width, int height) throws HeadlessException {
+        this.width = width;
+        this.height = height;
+        this.setSize(width, height);
         panel = new DrawPanel(this.getWidth(), this.getHeight(), 10);
         panel.setBackground(Color.CYAN);
         panel.addMouseListener(new MouseListener() {
@@ -38,5 +44,15 @@ public class MainWindow extends JFrame {
             }
         });
         this.add(panel);
+    }
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
     }
 }

@@ -5,7 +5,7 @@ public class Road {
     private final int x;
     private final int y;
 
-    public Road(final int x, final int y) {
+    public Road(int x, int y) {
         this.x = x;
         this.y = y;
     }

@@ -3,9 +3,9 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-        MainWindow window = new MainWindow();
+        MainWindow window = new MainWindow(1400, 700);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setSize(1400, 700);
+        //window.setSize(1400, 700);
         window.setLocationRelativeTo(null);
         window.setVisible(true);
     }

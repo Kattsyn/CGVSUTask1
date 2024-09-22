@@ -7,7 +7,7 @@ public class Car {
     private final int width;
     private final int height;
 
-    public Car(final int x, final int y, final int width, final int height) {
+    public Car(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -16,6 +16,10 @@ public class Car {
 
     public void setX(int x) {
         this.x = x;
+    }
+
+    public int getX() {
+        return x;
     }
 
 
@@ -49,7 +53,7 @@ public class Car {
         private final int width;
         private final int height;
 
-        public Wheel(final int x, final int y, final int width, final int height) {
+        public Wheel(int x, int y, int width, int height) {
             this.x = x;
             this.y = y;
             this.width = width;

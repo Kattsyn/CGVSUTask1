@@ -9,28 +9,28 @@ public class DrawPanel extends JPanel implements ActionListener {
     private final int PANEL_WIDTH;
     private final int PANEL_HEIGHT;
     private final int TIMER_DELAY;
-    private Timer timer;
-    private int ticksFromStart = 0;
+    private final Timer timer;
+    private int ticksFromStart;
 
-    private Car car;
-    private Sun sun;
-    private Clouds cloud1;
-    private Clouds cloud2;
-    private Clouds cloud3;
-    private Clouds cloud4;
-    private Clouds cloud5;
-    private Road road;
-    private TrafficLight trafficLight;
-    private Sign sign;
+    private final Car car;
+    private final Sun sun;
+    private final Clouds cloud1;
+    private final Clouds cloud2;
+    private final Clouds cloud3;
+    private final Clouds cloud4;
+    private final Clouds cloud5;
+    private final Road road;
+    private final TrafficLight trafficLight;
 
-    public DrawPanel(final int width, final int height, final int timerDelay) {
+    public DrawPanel(int width, int height, int timerDelay) {
         this.PANEL_WIDTH = width;
         this.PANEL_HEIGHT = height;
         this.TIMER_DELAY = timerDelay;
         timer = new Timer(timerDelay, this);
         timer.start();
 
-        this.car = new Car(10, 400, 400, 200);
+        this.car = new Car(0, 400, 400, 200);
+        ticksFromStart = this.car.getX();
         this.sun = new Sun(1050, 120, 100, 100);
         this.cloud1 = new Clouds(350, 220, 170, 50);
         this.cloud2 = new Clouds(100, 200, 200, 60);
@@ -39,7 +39,6 @@ public class DrawPanel extends JPanel implements ActionListener {
         this.cloud5 = new Clouds(1100, 180, 200, 60);
         this.road = new Road(0, 550);
         this.trafficLight = new TrafficLight(578, 314, 40, 100);
-        this.sign = new Sign(1150, 330);
     }
 
     @Override
@@ -54,7 +53,6 @@ public class DrawPanel extends JPanel implements ActionListener {
         cloud4.draw(gr);
         cloud5.draw(gr);
         trafficLight.draw(gr);
-        sign.draw(gr);
         car.draw(gr);
     }
 
